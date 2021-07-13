@@ -7,8 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Descirption 所有Controller的父类，封装一些共有的方法
@@ -22,6 +25,16 @@ public abstract class BaseController {
      */
     public Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    public Map<String,Object> paginationMap = new HashMap<String,Object>();
+
+    public Map<String,Object> getPaginationMap(int pageIndex,int pageSize){
+        //每次访问都会清空全局变量
+        Map<String,Object> objectMap = new HashMap<String,Object>();
+        objectMap.put("pageSize",pageSize);
+        objectMap.put("pageIndex",pageIndex);
+        return objectMap;
+    }
+
     /**
      * 从thread local获取网络上下文
      * @return
@@ -31,6 +44,16 @@ public abstract class BaseController {
         ServletRequestAttributes servletRequestAttributes;
         if (requestAttributes instanceof ServletRequestAttributes) {
             servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
+            return servletRequestAttributes.getRequest();
+        }
+        return null;
+    }
+
+    public HttpServletRequest request (){
+        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes servletRequestAttributes;
+        if (requestAttributes instanceof  ServletRequestAttributes){
+            servletRequestAttributes  =( ServletRequestAttributes) requestAttributes;
             return servletRequestAttributes.getRequest();
         }
         return null;

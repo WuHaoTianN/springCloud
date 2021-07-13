@@ -1,7 +1,6 @@
 package com.Harry.springboot.controller;
 
 import com.Harry.springboot.config.common.ResultBody;
-import com.Harry.springboot.config.common.allEnum.BaseEnum;
 import com.Harry.springboot.config.common.base.baseController.BaseController;
 import com.Harry.springboot.config.common.utils.constant.Constants;
 import com.Harry.springboot.service.UserService;
@@ -12,7 +11,7 @@ import javax.annotation.Resource;
 
 /**
  * @ClassName UserController
- * @Description TODO
+ * @Description 用户控制层
  * @Author 吴昊天
  * @Date 2021/4/13 11:14
  * @Version 1.0
@@ -21,34 +20,23 @@ import javax.annotation.Resource;
 @RequestMapping(Constants.USER)
 public class UserController extends BaseController {
 
-    /**
-     * 用户 业务层
-     */
     @Resource
-    private UserService userService;
+    UserService userService;
 
-
-    /**
-     * @Author 吴昊天 
-     * @Description //TODO
-     * @Date 11:18 2021/4/13
-     * @Param 
-     * @return 
-     **/
-    @RequestMapping("test")
-    public ResultBody test(){
-        logger.info("user/test");
-        ResultBody resultBody = new ResultBody();
+    @RequestMapping("/userList")
+    public ResultBody userList(){
+        logger.info("user/userList()......");
+        ResultBody result = new ResultBody();
         try{
-
 
         }catch (Exception e){
             if (logger.isErrorEnabled()){
-                resultBody.setCode(BaseEnum.INTERNAL_SERVER_ERROR.getCode());
-                resultBody.setMsg(e.getMessage());
-                resultBody.setData(e);
+                logger.error(e.getMessage());
             }
         }
-        return resultBody;
+        return result;
     }
+
+
+
 }

@@ -2,6 +2,7 @@ package com.Harry.springcloud.provider.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Component;
@@ -31,7 +32,14 @@ public class RedisUtils {
 	    redisTemplate.setHashValueSerializer(stringSerializer);
 	    this.redisTemplate = redisTemplate;
 	}
-	
+
+	public void set(RedisTemplate<String,String> redisTemplate){
+		RedisSerializer<?> redisTemplate1 = new StringRedisSerializer();
+		redisTemplate.setKeySerializer(redisTemplate1);
+		redisTemplate.setKeySerializer(redisTemplate1);
+		redisTemplate.setHashKeySerializer(redisTemplate1);
+		this.redisTemplate = redisTemplate;
+	}
 	/**
 	 * 读取缓存
 	 * 

@@ -1,39 +1,23 @@
 package com.Harry.springboot.controller;
 
-import cn.hutool.crypto.digest.DigestUtil;
-import org.springframework.util.DigestUtils;
-
-import java.util.HashMap;
-
 /**
  * @ClassName TestController
  * @Description TODO
  * @Author 吴昊天
- * @Date 2021/4/26 16:09
+ * @Date 2021/7/7 9:09
  * @Version 1.0
  **/
 public class TestController {
 
-     static HashMap<Integer, Integer> cache = new HashMap<>();
+    public static final String API_KEY = "hrf5gdfghe-e74bebd8-2f4a33bc-e7963";
+    public static final String SECRET_KEY = "fecbaab2-35befe7e-2ea695e8-67e56";
 
     public static void main(String[] args) {
-        TestController.fib(new Integer(5));
+
+        Integer integer = 0;
+
+
+
+
     }
-
-    public static int fib(int N) {
-        if (cache.containsKey(N)) {
-            return cache.get(N);
-        }
-
-        int result;
-
-        if (N < 2) {
-            result = N;
-        } else {
-            result = fib(N - 1) + fib(N - 2);
-        }
-        cache.put(N, result);
-        return result;
-    }
-
 }

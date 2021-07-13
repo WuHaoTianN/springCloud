@@ -1,5 +1,6 @@
 package com.Harry.springboot.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -16,7 +17,7 @@ import lombok.Data;
 @TableName("version")
 public class Version {
 
-    @TableId("id")
+    @TableId(type = IdType.AUTO,value = "id")
     private Integer id;
 
     @TableField("versionNumber")
@@ -24,5 +25,8 @@ public class Version {
 
     @TableField("versionNote")
     private String versionNote;
+
+    @TableField("url")
+    private String url;
 
 }

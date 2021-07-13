@@ -18,4 +18,5 @@
 <!--	<update id="updateByUserid" parameterType="map">-->
 <!--		update t_user set username = #{username} where userid = #{userid}-->
 <!--	</update>-->
+    <select id="getUserList" resultType="com.Harry.springboot.config.vo.UserVo"></select>
 </mapper>

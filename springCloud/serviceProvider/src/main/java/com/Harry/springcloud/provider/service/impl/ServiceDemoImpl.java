@@ -54,6 +54,7 @@ public class ServiceDemoImpl implements ServiceDemo {
 
 	@Override
 	public void updateByUserid(String userid, String username) {
+		HashMap<String,String> map1 = new HashMap<>();
 		HashMap<String,String> map = new HashMap<String,String>();
 		map.put("userid", userid);
 		map.put("username", username);

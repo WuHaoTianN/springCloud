@@ -1,19 +1,15 @@
 package com.Harry.springboot.controller;
 
-import javax.annotation.Resource;
-
 import com.Harry.springboot.config.common.base.baseController.BaseController;
 import com.Harry.springboot.config.common.utils.constant.Constants;
-import com.aliyun.dysmsapi20170525.models.SendSmsRequest;
-import org.springframework.web.bind.annotation.*;
 import com.Harry.springboot.entity.User;
 import com.Harry.springboot.service.DemoService;
-import com.aliyun.tea.*;
-import com.aliyun.dysmsapi20170525.*;
-import com.aliyun.dysmsapi20170525.models.*;
-import com.aliyun.teaopenapi.*;
-import com.aliyun.teaopenapi.models.*;
-import java.util.HashMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * Controller demo
@@ -54,13 +50,14 @@ public class DemoController extends BaseController {
 	@GetMapping(value="/queryUserByUserid")
 	public String queryUserByUserid(@RequestParam("userid") String userid) {
 		User user = demoService.queryUserByUserid(userid);
+		 User user1 = demoService.queryUserByUserid(queryUserByUserid(userid));
 		return user.toString();
 		
 	}
 	
 	/**
 	 * 通过userid更新username
-	 * @param userid
+	 *@param userid
 	 * @param username
 	 */
 	@GetMapping(value="/updateByUserid")
