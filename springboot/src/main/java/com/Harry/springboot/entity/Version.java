@@ -15,7 +15,7 @@ import lombok.Data;
  **/
 @Data
 @TableName("version")
-public class Version {
+public class Version{
 
     @TableId(type = IdType.AUTO,value = "id")
     private Integer id;

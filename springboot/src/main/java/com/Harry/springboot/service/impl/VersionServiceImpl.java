@@ -33,8 +33,7 @@ public class VersionServiceImpl extends ServiceImpl<VersionMapper, Version> impl
         if (ObjectUtil.isNotEmpty(version)){
             version.setVersionNote(null);
         }
-
-        return null;
+        return version;
     }
 
     @Override

@@ -13,14 +13,14 @@ import java.util.Date;
  * 2020年5月28日
  */
 @Data
-@TableName("tz_user")
+@TableName("user")
 public class User extends Page{
 
 	/**
 	 * 用户主键 UUID
 	 */
 	@TableId("user_id")
-	private String userId;
+	private Integer userId;
 
 	/**
 	 * 昵称
@@ -61,8 +61,8 @@ public class User extends Page{
 	/**
 	 * 修改时间
 	 */
-	@TableField("modify_time")
-	private Date modifyTime;
+	@TableField("update_time")
+	private Date updateTime;
 
 	/**
 	 * 注册时间
@@ -91,8 +91,8 @@ public class User extends Page{
 	/**
 	 * 备注
 	 */
-	@TableField("user_memo")
-	private String userMemo;
+	@TableField("user_note")
+	private String userNote;
 
 	/**
 	 * 性别 M(男) or F(女)

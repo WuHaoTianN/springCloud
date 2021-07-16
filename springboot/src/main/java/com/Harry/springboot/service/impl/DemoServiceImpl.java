@@ -1,15 +1,14 @@
 package com.Harry.springboot.service.impl;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import com.Harry.springboot.entity.User;
+import com.Harry.springboot.service.DemoService;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.Harry.springboot.entity.User;
-import com.Harry.springboot.service.DemoService;
+import java.util.HashMap;
+import java.util.Map;
 /**
  * 
  * @author Harry
@@ -32,9 +31,9 @@ public class DemoServiceImpl implements DemoService {
 		StringBuffer S = new StringBuffer();
 		Map<String,Object> map = new HashMap<>();
 		User user = new User();
-		user.setId("1");
-		user.setName("harry");
-		user.setSex("帅小伙");
+//		user.setId("1");
+//		user.setName("harry");
+//		user.setSex("帅小伙");
 //		int result = userDao.insertUser(user);
 		return 0;
 	}

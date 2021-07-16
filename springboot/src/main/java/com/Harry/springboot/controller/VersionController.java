@@ -5,9 +5,12 @@ import cn.hutool.http.HttpRequest;
 import com.Harry.springboot.config.common.ResultBody;
 import com.Harry.springboot.config.common.base.baseController.BaseController;
 import com.Harry.springboot.config.common.utils.constant.Constants;
+import com.Harry.springboot.entity.Version;
+import com.Harry.springboot.service.VersionService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +25,9 @@ import java.util.Map;
 @RequestMapping(Constants.VERSION)
 public class VersionController extends BaseController {
 
+    @Resource
+    VersionService versionService;
+
     /**
      * @Author 吴昊天 
      * @Description 传入版本号，查询是否需要下载最新的安装包
@@ -35,9 +41,10 @@ public class VersionController extends BaseController {
         ResultBody resultBody = new ResultBody();
         try{
             if (ObjectUtil.isNotEmpty(versionNumber)){
-
+                Version version = versionService.checkNumber(versionNumber);
+                resultBody.setCode("200");
+                resultBody.setData(version);
             }
-
         }catch (Exception e){
             if (logger.isErrorEnabled()){
 

@@ -27,6 +27,7 @@
 		<lombok.version>1.16.10</lombok.version>
 		<mybatis-plus.version>3.4.3.1</mybatis-plus.version>
 		<org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
+		<spring.swagger2.version>2.6.1</spring.swagger2.version>
 	</properties>
 
 	<dependencies>
@@ -116,6 +117,11 @@
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
 			<version>${org.mapstruct.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${spring.swagger2.version}</version>
 		</dependency>
 	</dependencies>
 	<build>

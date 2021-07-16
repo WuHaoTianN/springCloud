@@ -4,6 +4,7 @@ import com.Harry.springboot.config.common.ResultBody;
 import com.Harry.springboot.config.common.base.baseController.BaseController;
 import com.Harry.springboot.config.common.utils.constant.Constants;
 import com.Harry.springboot.service.UserService;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +24,7 @@ public class UserController extends BaseController {
     @Resource
     UserService userService;
 
-    @RequestMapping("/userList")
+    @RequestMapping("userList")
     public ResultBody userList(){
         logger.info("user/userList()......");
         ResultBody result = new ResultBody();
@@ -35,6 +36,12 @@ public class UserController extends BaseController {
             }
         }
         return result;
+    }
+
+
+    @PostMapping("saveUser")
+    public ResultBody saveUser(){
+        return null;
     }
 
 
